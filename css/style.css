@@ -1,0 +1,48 @@
+html {
+  box-sizing: border-box;
+}
+
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+button {
+  width: 25%;
+ 
+}
+
+.main-section {
+  display: flex;
+  justify-content: center;
+}
+
+.calculator {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 20%;
+  padding: 5px;
+  width: 25vw;
+  height: 50vh;
+  background-color: rgba(29, 29, 27, 0.384);
+  border: 2px solid black;
+  border-radius: 10px;
+}
+
+.calculator-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  flex: auto;
+}
+
+.zero {
+  width: 50%;
+}
+
+.calculator-screen {
+  align-self: flex-end;
+}
