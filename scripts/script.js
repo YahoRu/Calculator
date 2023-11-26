@@ -135,7 +135,7 @@ function recordZeroButton(event) {
 }
 
 function recordDotButton(event) {
-  if (currentOperator === DOT && !dotAlreadyUsed) {
+  if (currentOperator !== DOT && !dotAlreadyUsed) {
     screenInput.textContent += event.target.textContent;
     currentNumber += event.target.textContent;
     dotAlreadyUsed = true;
