@@ -4,33 +4,39 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/Calculator/css/style.css">
-  <title>Document</title>
+  <script defer src="/Calculator/scripts/script.js"></script>
+  <title>Calculator</title>
 </head>
 <body>
-  <section class="main-section">
+  
+  <section class="calculator-section">
     <div class="calculator">
-      <div class="calculator-screen output">.</div>
-      <div class="calculator-screen input">0</div>
+      <div class="error-message"></div>
+      <div class="calculator-screen">
+        <div class="screen output">...</div>
+        <div class="screen input">0</div>
+      </div>
+
       <div class="calculator-buttons">
-        <button class="button">C</button>
-        <button class="button">+-</button>
-        <button class="button">%</button>
-        <button class="button">/</button>
-        <button class="button">8</button>
-        <button class="button">9</button>
-        <button class="button">7</button>
-        <button class="button">*</button>
-        <button class="button">4</button>
-        <button class="button">5</button>
-        <button class="button">6</button>
-        <button class="button">-</button>
-        <button class="button">1</button>
-        <button class="button">2</button>
-        <button class="button">3</button>
-        <button class="button">+</button>
+        <button class="button reset">C</button>
+        <button class="button backspace">⌫</button>
+        <button class="button plus-minus-switcher">+-</button>
+        <button class="button operator">/</button>
+        <button class="button number">7</button>
+        <button class="button number">8</button>
+        <button class="button number">9</button>
+        <button class="button operator">*</button>
+        <button class="button number">4</button>
+        <button class="button number">5</button>
+        <button class="button number">6</button>
+        <button class="button operator">-</button>
+        <button class="button number">1</button>
+        <button class="button number">2</button>
+        <button class="button number">3</button>
+        <button class="button operator">+</button>
         <button class="button zero">0</button>
-        <button class="button">.</button>
-        <button class="button">=</button>
+        <button class="button dot">.</button>
+        <button class="button equal">=</button>
       </div>
     </div>
   </section>
