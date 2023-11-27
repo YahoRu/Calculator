@@ -17,18 +17,18 @@ const buttons = document.querySelectorAll(".button");
 const screenInput = document.querySelector(".input");
 const screenOutput = document.querySelector(".output");
 
+const mathExpression = [];
 let dotAlreadyUsed = false;
-let mathExpression = [];
 let currentNumber = BASE_VALUE;
 let currentOperator = EMPTY_STRING;
 let firstNumber = 0;
 let secondNumber = 0;
 
 const operatorsList = {
-  "+": sum,
+  "+": add,
   "-": subtraction,
   "*": multiply,
-  "/": division,
+  "/":  divide,
 };
 
 numberButtons.forEach((numberButton) => {
@@ -46,7 +46,7 @@ backspaceButton.addEventListener("click", recordBackspaceButton);
 resetButton.addEventListener("click", resetCalculator);
 equalButton.addEventListener("click", makeCalculations);
 
-function sum() {
+function add() {
   return (Number(firstNumber) + Number(secondNumber)).toFixed(7);
 }
 
@@ -58,7 +58,7 @@ function multiply() {
   return (Number(firstNumber) * Number(secondNumber)).toFixed(7);
 }
 
-function division() {
+function  divide() {
   return (Number(firstNumber) / Number(secondNumber)).toFixed(7);
 }
 
@@ -82,8 +82,7 @@ function currentElementIsOperator() {
     return false;
   }
 
-  return (operatorsList.hasOwnProperty(mathExpression.at(-1)) 
-          && currentNumber.length === 0);
+  return (mathExpression.at(-1) in operatorsList && currentNumber.length === 0);
 }
 
 function recordNumberButton(event) {
@@ -143,8 +142,8 @@ function recordDotButton(event) {
 }
 
 function resetCalculator() {
+  mathExpression.length = 0;
   dotAlreadyUsed = false;
-  mathExpression = [];
   currentNumber = BASE_VALUE;
   currentOperator = EMPTY_STRING;
   firstNumber = 0;
@@ -180,23 +179,21 @@ function recordBackspaceButton() {
     return;
   }
 
-  let ExpressionElement;
+  let expressionElement;
 
   if (currentNumber === EMPTY_STRING) {
-    ExpressionElement = mathExpression.pop();
+    expressionElement = mathExpression.pop();
 
-    if (operatorsList.hasOwnProperty(ExpressionElement)) {
+    if (expressionElement in operatorsList) {
       currentNumber = mathExpression.pop();
       screenInput.textContent = screenInput.textContent.slice(0, -1);
 
-      Array.from(currentNumber).forEach((element) => {
-        if (element === DOT) {
+        if (currentNumber.includes(DOT)) {
           dotAlreadyUsed = true;
         }
-      });
     }
   } else {
-    if (Array.from(currentNumber).at(-1) === DOT) {
+    if (currentNumber.at(-1) === DOT) {
       dotAlreadyUsed = false;
     }
 
@@ -251,7 +248,7 @@ function makeCalculations() {
     screenInput.textContent = result.slice(0, 20);
   }
 
-  mathExpression = [];
+  mathExpression.length = 0;
   currentNumber = String(firstNumber);
   currentOperator = EMPTY_STRING;
   firstNumber = 0;

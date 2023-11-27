@@ -1,10 +1,5 @@
-html {
-  box-sizing: border-box;
-}
-
 *,
-::before,
-::after {
+html {
   box-sizing: border-box;
 }
 
@@ -72,7 +67,7 @@ button {
 .calculator-buttons {
   display: flex;
   flex-wrap: wrap;
-  flex: auto;
+  flex-grow: 1;
 }
 
 .zero {
